@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+  <link rel="stylesheet" href="css/gridrotator.css">
+  <script type="text/javascript" src="js/modernizr.custom.js"></script>
+  <script src='js/jquery.gridrotator.js'></script>
+  <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+  <script src='js/gallery.js'></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="center"> QTech 2015</h1>
+  <div id="ri-grid" class="ri-grid ri-grid-size-1 ri-shadow">
+    <ul>
+      <li>
+        <a href="#"><img src="uploads/guac_chips6517e70f-d392-44bb-bbb4-d0e8d2dab306.jpg"/></a>
+      </li>
+      <li>
+        <a href="#"><img src="uploads/one_piece____zoro_film_z_by_fajerps-d57wkd60eeb7861-0874-4dda-a350-feb318dc9c66.jpg"/></a>
+      </li>
+      <li>
+        <a href="#"><img src="uploads/yeah_right02f9ce0d-6b7c-4d9d-aa15-e3c56385aad5.jpg"/></a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
