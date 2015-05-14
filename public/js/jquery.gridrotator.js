@@ -758,7 +758,23 @@
 				el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : speed + 'ms', complete : fncomplete } ) );
 			}, 25 );
 
-		}
+		},
+
+    _createItemFromUrl: function(url) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#';
+      a.setAttribute('style', 'background-image:url(' + url + ')');
+
+      li.appendChild(a);
+      return li;
+    },
+
+    newImage : function(path) {
+      var item = this._createItemFromUrl(path);
+      this.$itemsCache.push(item);
+      this._layout();
+    }
 
 	};
 
