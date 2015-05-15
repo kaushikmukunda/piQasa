@@ -1,0 +1,9 @@
+#page {
+  min-width: 1024px;
+  position: relative;
+  height: 100%;
+}
+
+.ri-grid {
+  margin: 20px;
+}
