@@ -1,8 +1,36 @@
 'use strict';
 
 var socketio = require('socket.io')();
+var fileUtils = require('./fileUtils.js');
 
 module.exports = Socket;
+
+function Endpoint(endpoint) {
+  var client = endpoint;
+
+  client.on('readyToUpdate', function() {
+    fileUtils.getUploadedPics()
+    .then(function(pics) {
+      client.emit('updatePics', pics);
+      console.log('Sent uploaded pics!', pics);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+  });
+}
+
+function listen(socketConnection) {
+  socketConnection.on('connection', function(endpoint) {
+    console.log('Connection initiated');
+    new Endpoint(endpoint);
+  });
+
+  socketConnection.on('disconnect', function() {
+    console.log('User disconnected');
+  });
+
+}
 
 function Socket() {};
 
@@ -16,12 +44,3 @@ Socket.prototype.broadcastEvent = function(evt, kwargs) {
   socketio.emit(evt, kwargs);
 };
 
-function listen(socketConnection) {
-  socketConnection.on('connection', function(endpoint) {
-    console.log('Connection initiated');
-  });
-
-  socketConnection.on('disconnect', function(endpoint) {
-    console.log('User disconnected');
-  });
-}

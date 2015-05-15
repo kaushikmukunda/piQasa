@@ -6,24 +6,10 @@ var path = require('path');
 
 var STOCK_PICS_FOLDER = 'stock';
 var STOCK_PICS_PATH = 'public' + path.sep + STOCK_PICS_FOLDER;
+var UPLOADED_PICS_FOLDER = 'uploads';
+var UPLOADED_PICS_PATH = 'public' + path.sep + UPLOADED_PICS_FOLDER;
 
 var exports = module.exports = {};
-
-exports.getRelativePath = function(path) {
-  return path.substr(path.search(path.sep) + 1);
-};
-
-exports.getStockPics = function() {
-  return new promise(function(resolve, reject) {
-    fs.readdir(STOCK_PICS_PATH, function(err, files) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(filterImagePics(files));
-      }
-    });
-  });
-};
 
 function endsWith(str, suffix) {
   return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -37,13 +23,38 @@ function imagePic(fileName) {
          );
 }
 
-function filterImagePics(fileList) {
+function filterImagePics(fileList, folder) {
     var stockPics = [];
     fileList.forEach(function(file) {
       if (imagePic(file)) {
-        stockPics.push(STOCK_PICS_FOLDER + path.sep + file);
+        stockPics.push(folder + path.sep + file);
       }
     });
     console.log('stockPics', stockPics);
     return stockPics;
 }
+
+function getPicsFromFolder(folder, folderPath) {
+  return new promise(function(resolve, reject) {
+    fs.readdir(folderPath, function(err, files) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(filterImagePics(files, folder));
+      }
+    });
+  });
+}
+
+exports.getRelativePath = function(filepath) {
+  return filepath.substr(filepath.search(path.sep) + 1);
+};
+
+exports.getStockPics = function() {
+  return getPicsFromFolder(STOCK_PICS_FOLDER, STOCK_PICS_PATH);
+};
+
+exports.getUploadedPics = function() {
+  return getPicsFromFolder(UPLOADED_PICS_FOLDER, UPLOADED_PICS_PATH);
+};
+
