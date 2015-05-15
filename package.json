@@ -6,6 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "bluebird": "^2.9.25",
     "body-parser": "~1.6.6",
     "debug": "~1.0.4",
     "express": "~4.8.6",

@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var swig = require('swig');
 var uuid = require('uuid');
-var c = require('./modules/common.js');
+var c = require('./modules/fileUtils.js');
 var Socket = require('./modules/sockets.js');
 var socket = new Socket();
 

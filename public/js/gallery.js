@@ -2,8 +2,8 @@
 
 $(function() {
   var gridrotator = $('#ri-grid').gridrotator({
-   rows: 1,
-   columns: 2
+   rows: 2, columns: 4,
+   maxStep: 2
   });
 
   var socket = io();

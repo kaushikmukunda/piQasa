@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+var fileUtils = require('../modules/fileUtils.js');
 
 /* GET home page. */
 router.route('/')
@@ -17,7 +18,16 @@ router.route('/upload')
 
 router.route('/gallery')
 .get(function(req, res) {
-  res.render('gallery');
+
+  fileUtils.getStockPics()
+  .then(function(pics) {
+    res.render('gallery', {'stockpics' : pics});
+  })
+  .catch(function(err) {
+    console.log('err', err);
+    res.render('gallery', {'error' : err});
+  });
+
 });
 
 module.exports = router;
