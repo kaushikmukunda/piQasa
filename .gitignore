@@ -3,3 +3,4 @@ public/uploads/
 *.sh
 *.orig
 *.swp
+.DS_Store
