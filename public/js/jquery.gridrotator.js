@@ -155,6 +155,8 @@
 		nochange : [],
 		// callback function when drawn
 		onDraw : function(){},
+    // callback function after init
+    onInit : function(){},
 		// Height to Width Ratio (Height/Width). A 0.5 ratio would be used for an image that is twice as large as it's height. Default is 1 (square images).
 		heightToWidthRatio : 1,
 		subImg : false
@@ -264,6 +266,7 @@
 						self.outItems= [];
 						self._layout( function() {
 							self._initEvents();
+              self.options.onInit();
 						} );
 						// replace [options.step] items after [options.interval] time
 						// the items that go out are randomly chosen, while the ones that get in

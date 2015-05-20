@@ -1,0 +1,12 @@
+app-dir: /Users/kmukunda/Mobile/piQasa
+applications:
+  /Users/kmukunda/Mobile/piQasa:
+    name: piQasa
+    url: piqasa.xrunq.qualcomm.com
+disk: 2048
+framework:
+  runtime: node010
+  type: node
+instances: 1
+memory: 256
+name: piQasa

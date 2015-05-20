@@ -6,14 +6,17 @@ $(function() {
    gridrotator.newImage(imgPath);
   }
 
+  function gridReady() {
+    socket.emit('readyToUpdate', {});
+  }
+
   var gridrotator = $('#ri-grid').gridrotator({
    rows: 2, columns: 4,
-   maxStep: 2
+   maxStep: 2,
+   onInit: gridReady
   });
 
   var socket = io();
-
-  socket.emit('readyToUpdate', {});
 
   socket.on('fileAdded', function(info) {
     addNewImage(info['url']);
