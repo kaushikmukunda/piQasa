@@ -353,10 +353,14 @@
 
 				// container's width
 			var containerWidth = ( document.defaultView ) ? parseInt( document.defaultView.getComputedStyle( this.$el.get( 0 ), null ).width ) : this.$el.width(),
+			containerHeight = ( document.defaultView ) ? parseInt( document.defaultView.getComputedStyle( this.$el.get( 0 ), null ).height) : this.$el.height(),
 				// item's width
 				itemWidth = Math.floor( containerWidth / this.columns ),
+				// item's height
+				itemHeight = Math.floor( containerHeight / this.rows),
 				// calculate gap
-				gapWidth = containerWidth - ( this.columns * Math.floor( itemWidth ) );
+				gapWidth = containerWidth - ( this.columns * Math.floor( itemWidth ) ),
+				gapHeight = containerHeight - ( this.rows * Math.floor( itemHeight ) );
 
 			for( var i = 0; i < this.rows; ++i ) {
 
@@ -367,7 +371,7 @@
 
 					$item.css( {
 						width : j < Math.floor( gapWidth ) ? itemWidth + 1 : itemWidth,
-						height : Math.floor( itemWidth * this.options.heightToWidthRatio )
+						height : i < Math.floor( gapHeight ) ? itemHeight + 1 : itemHeight
 					} );
 
 					if( $.inArray( idx, this.options.nochange ) !== -1 ) {

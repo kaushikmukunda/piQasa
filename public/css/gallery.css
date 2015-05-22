@@ -1,9 +1,74 @@
+body {
+  margin: 0px;
+}
+
+div {
+  text-align:center;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#header {
+  height:5%;
+  background-color: grey;
+}
+
 #page {
   min-width: 1024px;
-  position: relative;
+  height: 85%;
+  background-color: grey;
+}
+
+.gridContainer {
+  padding: 5px;
+  background-color:black;
   height: 100%;
 }
 
 .ri-grid {
-  margin: 20px;
+  margin: 0px;
+  height: 100%;
+}
+
+#footer {
+  height:10%;
+  background-color:orange;
+}
+
+.padToCenter {
+  padding: 1.5%;
+}
+
+.title {
+  font-size: 80px;
+}
+
+.medium-text {
+  font-size: 20px;
+  top: 30%;
+  position: relative;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.white {
+  color: white;
 }

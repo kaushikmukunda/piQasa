@@ -11,7 +11,7 @@ $(function() {
   }
 
   var gridrotator = $('#ri-grid').gridrotator({
-   rows: 2, columns: 4,
+   rows: 3, columns: 4,
    maxStep: 2,
    onInit: gridReady
   });

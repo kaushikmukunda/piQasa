@@ -9,13 +9,29 @@
 {% endblock %}
 
 {% block content %}
-  <div id="page">
-  <div id="ri-grid" class="ri-grid ri-grid-size-2">
-    <ul>
-      {% for stockpic in stockpics %}
-        <li><a href="#"><img src="{{stockpic}}"/></a></li>
-      {% endfor %}
-    </ul>
+  <div id="header">
   </div>
+
+  <div id="page" class="padToCenter">
+    <div class="gridContainer">
+      <div id="ri-grid" class="ri-grid ri-grid-size-2">
+        <ul>
+          {% for stockpic in stockpics %}
+            <li><a href="#"><img src="{{stockpic}}"/></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer" class="padToCenter">
+    <div class="left">
+      <div class="title">QTech<span class="bold white">X</span></div>
+      <div>20 YEARS OF SHARING INNOVATION</div>
+    </div>
+    <div class="right white medium-text">
+      <span class="right bold">Learning</span><br>
+      Qualcomm <span class="bold">Center</span>
+    </div>
   </div>
 {% endblock %}
