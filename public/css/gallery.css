@@ -17,14 +17,19 @@ div {
 }
 
 #header {
-  height:5%;
-  background-color: grey;
+  height:3%;
+  background: url('QTX_photos_monitor_frame_grey.png');
 }
 
 #page {
   min-width: 1024px;
-  height: 85%;
-  background-color: grey;
+  height: 90%;
+  background: url('QTX_photos_monitor_frame_grey.png');
+}
+
+#footer {
+  height:7%;
+  background: url('QTX_photos_monitor_frame_orange.png');
 }
 
 .gridContainer {
@@ -36,11 +41,6 @@ div {
 .ri-grid {
   margin: 0px;
   height: 100%;
-}
-
-#footer {
-  height:10%;
-  background-color:orange;
 }
 
 .padToCenter {
