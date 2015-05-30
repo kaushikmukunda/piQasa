@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var fileUtils = require('../modules/fileUtils.js');
+var fileUtils = require('../modules/fileUtils');
 
 /* GET home page. */
 router.route('/')
@@ -11,9 +11,8 @@ router.route('/')
 });
 
 router.route('/upload')
-.post(function(req, res) {
-  console.log(req.files);
-  res.redirect('/');
+.post(function(req, res, next) {
+  fileUtils.handleFileUpload(req, res, next);
 });
 
 router.route('/gallery')

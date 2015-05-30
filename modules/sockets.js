@@ -1,7 +1,6 @@
 'use strict';
 
 var socketio = require('socket.io')();
-var fileUtils = require('./fileUtils.js');
 
 module.exports = Socket;
 
@@ -9,6 +8,7 @@ function Endpoint(endpoint) {
   var client = endpoint;
 
   client.on('readyToUpdate', function() {
+    var fileUtils = require('./fileUtils.js');
     fileUtils.getUploadedPics()
     .then(function(pics) {
       client.emit('updatePics', pics);
