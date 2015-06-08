@@ -20,7 +20,6 @@ $(function() {
 
   socket.on('fileAdded', function(info) {
     addNewImage(info['url']);
-    console.log('Received event', info);
   });
 
   socket.on('updatePics', function(pics) {

@@ -64,9 +64,10 @@ function multerUpload(req, res, next) {
     onFileUploadStart: function(file) {
         console.log(file.fieldname + ' is starting ...');
     },
-    onFileUploadComplete: function(file) {
+    onFileUploadComplete: function(file, req, res) {
         console.log(file.fieldname + ' uploaded to ' + file.path);
         socket.broadcastEvent('fileAdded', {'url' : exports.getRelativePath(file.path)});
+        res.send("File uploaded successfully");
     },
     onParseStart: function() {
         console.log('Form parsing started');
@@ -108,7 +109,6 @@ exports.handleFileUpload = function(req, res, next) {
   console.log("Handling file upload");
   if (validUploadRequest(req)) {
     multerUpload(req, res, next);
-    res.end();
   } else {
     res.status(401).send("Invalid or missing API_KEY");
   }
