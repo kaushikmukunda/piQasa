@@ -12,9 +12,14 @@ $(function() {
   }
 
   var gridrotator = $('#ri-grid').gridrotator({
-   rows: 4, columns: 3,
-   maxStep: 2,
-   onInit: gridReady
+    rows: 4, columns: 3,
+    w1024 : { rows : 4, columns : 3 },
+    w768 : {rows : 3, columns : 3 },
+    w480 : {rows : 3, columns : 3 },
+    w320 : {rows : 2, columns : 3 },
+    w240 : {rows : 2, columns : 3 },
+    maxStep: 2,
+    onInit: gridReady
   });
 
   var socket = io();

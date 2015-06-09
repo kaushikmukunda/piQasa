@@ -22,7 +22,6 @@ div {
 }
 
 #page {
-  min-width: 1024px;
   height: 90%;
   background: url('QTX_photos_monitor_frame_grey.png');
 }
