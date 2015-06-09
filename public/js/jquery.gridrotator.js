@@ -772,15 +772,14 @@
       var a = document.createElement('a');
       a.href = '#';
       a.setAttribute('style', 'background-image:url(' + url + ')');
-
       li.appendChild(a);
       return li;
     },
 
     newImage : function(path) {
       var item = this._createItemFromUrl(path);
+      this.outItems.push($(item.childNodes[0]).clone());
       this.$itemsCache.push(item);
-      this._layout();
     }
 
 	};

@@ -3,7 +3,8 @@
 $(function() {
 
   function addNewImage(imgPath) {
-   gridrotator.newImage(imgPath);
+    gridrotator.newImage(imgPath);
+    console.log("Adding new pic", imgPath);
   }
 
   function gridReady() {
@@ -25,7 +26,6 @@ $(function() {
   socket.on('updatePics', function(pics) {
     pics.forEach(function(pic) {
       addNewImage(pic);
-      console.log("Adding new pic", pic);
     });
   });
 
