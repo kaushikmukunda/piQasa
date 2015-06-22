@@ -6,6 +6,11 @@ div {
   text-align:center;
 }
 
+.ri-grid ul li a{
+  background-position:center;
+  background-size:cover;
+}
+
 *,
 *:after,
 *:before {
@@ -17,12 +22,12 @@ div {
 }
 
 #header {
-  height:3%;
+  height:0%;
   background: url('QTX_photos_monitor_frame_grey.png');
 }
 
 #page {
-  height: 90%;
+  height: 93%;
   background: url('QTX_photos_monitor_frame_grey.png');
 }
 

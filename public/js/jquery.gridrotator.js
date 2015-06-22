@@ -778,7 +778,7 @@
 
     newImage : function(path) {
       var item = this._createItemFromUrl(path);
-      this.outItems.push($(item.childNodes[0]).clone());
+      this.outItems.unshift($(item.childNodes[0]).clone());
       this.$itemsCache.push(item);
     }
 
